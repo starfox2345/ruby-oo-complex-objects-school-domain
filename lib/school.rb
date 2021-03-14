@@ -1,26 +1,35 @@
 # code here!
+require 'pry'
 class School
-    attr_accessor :roster, :name_of_school
 
-    def initialize(name_of_school)
-        @name_of_school = name_of_school
+    attr_accessor :roster, :add_student
+
+    def initialize(school)
+        @school = school
         @roster = {}
     end
 
-    def add_student(name_value, grade_key)
-
-        @roster[grade_key] ||= []
-        @roster[grade_key] << name_value
+    def add_student(name, grade)
+        # temp = []
+        # if @roster[grade] == [grade]] || @roster[grade] == []
+        #     temp << name
+        #     @roster[grade] = temp
+        # end
+        @roster[grade] ||= []
+        @roster[grade] << name
     end
 
     def grade(grade)
         @roster[grade]
     end
+
     def sort
-        student_hash = {}
-        @roster.each do |grade, students|
-            student_hash[grade] = students.sort
+   #     binding.pry
+        hash = {}
+        @roster.each do |grades, students|
+        hash[grades] = students.sort
         end
-        student_hash
+        hash
     end
+    
 end
